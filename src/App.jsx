@@ -4,12 +4,12 @@ import FollowCard from './FollowCard'
 const users = [
   {
     userName: 'Jamilton',
-    name: '@jamilton',
+    name: 'jamilton Dominguez',
     isFollowing: true
   },
   {
     userName: 'Miguel',
-    name: '@miguel',
+    name: 'miguel Melandromo',
     isFollowing: false
   }
 ]
@@ -19,7 +19,11 @@ function App () {
     <section className='App'>
       {users.map(({ name, userName, isFollowing }) => {
         return (
-          <FollowCard key={userName} userName={userName} initialIsFollowing={isFollowing}>
+          <FollowCard
+            key={userName}
+            userName={userName}
+            initialIsFollowing={isFollowing}
+          >
             {name}
           </FollowCard>
         )

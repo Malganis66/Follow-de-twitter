@@ -1,19 +1,19 @@
 import { useState } from 'react'
 
-export default ({ userName, name, initialIsFollowing }) => {
+export default ({ children, userName, initialIsFollowing }) => {
   const [isFollowing, setIsFollowing] = useState(initialIsFollowing)
 
   const text = isFollowing ? 'Following' : 'Follow'
   const buttonClassName = isFollowing
-    ? 'to-followCard-button is-following'
-    : 'to-followCard-button'
+    ? 'tw-followCard-button is-following'
+    : 'tw-followCard-button'
 
   const handleClick = () => {
     setIsFollowing(!isFollowing)
   }
 
   return (
-    <article className='flex items-center text-white text-xs justify-between'>
+    <article className='flex items-center gap-3 text-white text-xs justify-between'>
       <header className='flex items-center gap-1'>
         <img
           className='w-12 h-12 rounded-full'
@@ -21,7 +21,7 @@ export default ({ userName, name, initialIsFollowing }) => {
           alt='bluuweb avatar'
         />
         <div className='flex flex-col'>
-          <strong>{name}</strong>
+          <strong>{children}</strong>
           <span className='opacity-60'>{userName}</span>
         </div>
       </header>
