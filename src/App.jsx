@@ -1,19 +1,29 @@
 import './styles/App.css'
 import FollowCard from './FollowCard'
 
+const users = [
+  {
+    userName: 'Jamilton',
+    name: '@jamilton',
+    isFollowing: true
+  },
+  {
+    userName: 'Miguel',
+    name: '@miguel',
+    isFollowing: false
+  }
+]
+
 function App () {
   return (
     <section className='App'>
-      <FollowCard
-        initialIsFollowing
-        userName='bluueweb'
-        name='Bluu Enrique Sanz'
-      />
-      <FollowCard
-        isFollowing={false}
-        userName='bluueweb'
-        name='Bluu Enri'
-      />
+      {users.map(({ name, userName, isFollowing }) => {
+        return (
+          <FollowCard key={userName} userName={userName} initialIsFollowing={isFollowing}>
+            {name}
+          </FollowCard>
+        )
+      })}
     </section>
   )
 }
